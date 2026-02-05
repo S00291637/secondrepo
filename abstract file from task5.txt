@@ -1,2 +1,28 @@
-task 5.
-add file and save
+//task 5.
+//add file and save
+
+#include "thingProperties.h"
+
+void setup(){
+  Serial.begin(115200);
+  delay(1500);
+
+  //initialize the variables/properties  
+  initProperties();
+
+  //debug information  
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+void loop() {
+  //sync with Cloud  
+  ArduinoCloud.update();
+}
+
+void onTestChange(){
+  /*
+  callback function, runs each time
+  the variable value changes
+  */
+}
